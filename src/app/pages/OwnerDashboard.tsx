@@ -37,6 +37,7 @@ export function OwnerDashboard() {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [displayName, setDisplayName] = useState(user?.name || "");
   const [myPCCenters, setMyPCCenters] = useState<PCCenter[]>([]);
+  const [allBookings, setAllBookings] = useState<Booking[]>([]);
   const [recentBookings, setRecentBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export function OwnerDashboard() {
       setMyPCCenters(centers);
       const ids = centers.map((c) => c.id);
       getBookingsByPCCenterIds(ids).then((bookings) => {
+        setAllBookings(bookings);
         const sorted = [...bookings].sort(
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
@@ -119,32 +121,44 @@ export function OwnerDashboard() {
     }
   };
 
+  const totalRevenue = allBookings
+    .filter((b) => b.status !== "cancelled")
+    .reduce((sum, b) => sum + b.totalPrice, 0);
+
+  const activeBookings = allBookings.filter(
+    (b) => b.status === "pending" || b.status === "confirmed"
+  ).length;
+
+  const avgRating =
+    myPCCenters.length > 0
+      ? (myPCCenters.reduce((sum, c) => sum + (c.rating || 0), 0) / myPCCenters.length).toFixed(1)
+      : "—";
+
+  const formatRevenue = (v: number) =>
+    v >= 1_000_000 ? `₮${(v / 1_000_000).toFixed(1)}M` : `₮${v.toLocaleString()}`;
+
   const stats = [
     {
-      title: "Total Bookings",
-      value: "248",
-      change: "+12%",
+      title: "Нийт захиалга",
+      value: String(allBookings.length),
       icon: Calendar,
       color: "text-purple-500",
     },
     {
-      title: "Revenue (This Month)",
-      value: "₮2.4M",
-      change: "+8%",
+      title: "Нийт орлого",
+      value: formatRevenue(totalRevenue),
       icon: DollarSign,
       color: "text-green-500",
     },
     {
-      title: "Active Users",
-      value: "1,234",
-      change: "+23%",
+      title: "Идэвхтэй захиалга",
+      value: String(activeBookings),
       icon: Users,
       color: "text-cyan-500",
     },
     {
-      title: "Average Rating",
-      value: "4.8",
-      change: "+0.3",
+      title: "Дундаж үнэлгээ",
+      value: String(avgRating),
       icon: Star,
       color: "text-yellow-500",
     },
@@ -156,8 +170,8 @@ export function OwnerDashboard() {
       <div className="container mx-auto px-4">
         <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-            <p className="text-gray-400">Welcome back! Here's what's happening with your gaming center.</p>
+            <h1 className="text-3xl font-bold text-white mb-2">Хяналтын самбар</h1>
+            <p className="text-gray-400">Тавтай морил! Таны тавцангийн мэдээлэл энд байна.</p>
           </div>
 
           <div className="flex gap-3">
@@ -260,10 +274,7 @@ export function OwnerDashboard() {
                     <div className={`p-3 rounded-lg bg-[#0f0f17] border border-purple-500/20`}>
                       <stat.icon className={`size-6 ${stat.color}`} />
                     </div>
-                    <Badge className="bg-green-600/20 text-green-300 border-green-500/50">
-                      {stat.change}
-                    </Badge>
-                  </div>
+                    </div>
                   <h3 className="text-gray-400 text-sm mb-1">{stat.title}</h3>
                   <p className="text-3xl font-bold text-white">{stat.value}</p>
                 </CardContent>
@@ -457,16 +468,29 @@ export function OwnerDashboard() {
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2 text-lg">
                   <TrendingUp className="size-5 text-purple-500" />
-                  Occupancy Rate
+                  Захиалгын байдал
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-purple-400 mb-2">78%</div>
-                  <p className="text-gray-400 text-sm">Current occupancy</p>
-                  <div className="mt-4 h-2 bg-[#0f0f17] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full" style={{ width: '78%' }}></div>
-                  </div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Баталгаажсан", count: allBookings.filter(b => b.status === "confirmed").length, color: "bg-green-600" },
+                    { label: "Хүлээгдэж байна", count: allBookings.filter(b => b.status === "pending").length, color: "bg-yellow-500" },
+                    { label: "Цуцлагдсан", count: allBookings.filter(b => b.status === "cancelled").length, color: "bg-red-500" },
+                  ].map(({ label, count, color }) => {
+                    const pct = allBookings.length > 0 ? Math.round((count / allBookings.length) * 100) : 0;
+                    return (
+                      <div key={label}>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="text-gray-400">{label}</span>
+                          <span className="text-white">{count} ({pct}%)</span>
+                        </div>
+                        <div className="h-2 bg-[#0f0f17] rounded-full overflow-hidden">
+                          <div className={`h-full ${color} rounded-full`} style={{ width: `${pct}%` }} />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -476,38 +500,22 @@ export function OwnerDashboard() {
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2 text-lg">
                   <BarChart3 className="size-5 text-purple-500" />
-                  Popular Times
+                  Миний PC Төвүүд
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-400">Weekdays (10-18)</span>
-                      <span className="text-white">65%</span>
+                <div className="space-y-2">
+                  {myPCCenters.length === 0 ? (
+                    <p className="text-gray-500 text-sm text-center py-4">PC төв байхгүй</p>
+                  ) : myPCCenters.map((c) => (
+                    <div key={c.id} className="flex justify-between items-center text-sm py-1 border-b border-purple-500/10">
+                      <span className="text-gray-300 truncate">{c.name}</span>
+                      <div className="flex items-center gap-1 text-yellow-400 shrink-0 ml-2">
+                        <Star className="size-3 fill-yellow-400" />
+                        <span>{c.rating > 0 ? c.rating : "—"}</span>
+                      </div>
                     </div>
-                    <div className="h-2 bg-[#0f0f17] rounded-full overflow-hidden">
-                      <div className="h-full bg-cyan-600 rounded-full" style={{ width: '65%' }}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-400">Weekdays (18-23)</span>
-                      <span className="text-white">85%</span>
-                    </div>
-                    <div className="h-2 bg-[#0f0f17] rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-600 rounded-full" style={{ width: '85%' }}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-400">Weekends</span>
-                      <span className="text-white">92%</span>
-                    </div>
-                    <div className="h-2 bg-[#0f0f17] rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full" style={{ width: '92%' }}></div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
