@@ -102,6 +102,13 @@ export function PCDetail() {
         comment: comment.trim(),
       });
       setPcReviews((prev) => [newReview, ...prev]);
+      // Update rating and reviewCount immediately
+      setPcCenter((prev) => {
+        if (!prev) return prev;
+        const newCount = prev.reviewCount + 1;
+        const newRating = Math.round(((prev.rating * prev.reviewCount + rating) / newCount) * 10) / 10;
+        return { ...prev, rating: newRating, reviewCount: newCount };
+      });
       toast.success("Таны сэтгэгдэл амжилттай нэмэгдлээ!");
       setRating(0);
       setComment("");
@@ -117,7 +124,7 @@ export function PCDetail() {
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-          <Link to="/" className="hover:text-purple-400 transition-colors">Home</Link>
+          <Link to="/" className="hover:text-purple-400 transition-colors">Нүүр</Link>
           <ChevronRight className="size-4" />
           <span className="text-white">{pcCenter.name}</span>
         </div>
@@ -422,12 +429,18 @@ export function PCDetail() {
                       <h3 className="font-semibold text-white">Цагийн хуваарь</h3>
                     </div>
                     <div className="space-y-2 text-sm">
-                      {Object.entries(pcCenter.openingHours).map(([day, hours]) => (
-                        <div key={day} className="flex justify-between">
-                          <span className="text-gray-400 capitalize">{day}</span>
-                          <span className="text-white">{hours}</span>
-                        </div>
-                      ))}
+                      {Object.entries(pcCenter.openingHours).map(([day, hours]) => {
+                        const dayNames: Record<string, string> = {
+                          monday: "Даваа", tuesday: "Мягмар", wednesday: "Лхагва",
+                          thursday: "Пүрэв", friday: "Баасан", saturday: "Бямба", sunday: "Ням",
+                        };
+                        return (
+                          <div key={day} className="flex justify-between">
+                            <span className="text-gray-400">{dayNames[day] ?? day}</span>
+                            <span className="text-white">{hours}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
