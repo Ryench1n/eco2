@@ -312,6 +312,17 @@ export async function createReview(reviewData: Omit<Review, 'id' | 'date'>): Pro
     date: toDate(),
   }).save();
   const plain = doc.toObject();
+
+  // Recalculate and update the PC center's rating and reviewCount
+  const center = await PCCenterModel.findById(reviewData.pcCenterId).lean();
+  if (center) {
+    const currentCount = (center as unknown as PCCenter).reviewCount ?? 0;
+    const currentRating = (center as unknown as PCCenter).rating ?? 0;
+    const newCount = currentCount + 1;
+    const newRating = Math.round(((currentRating * currentCount + reviewData.rating) / newCount) * 10) / 10;
+    await PCCenterModel.findByIdAndUpdate(reviewData.pcCenterId, { rating: newRating, reviewCount: newCount });
+  }
+
   return { ...plain, id: String(plain._id) } as unknown as Review;
 }
 
