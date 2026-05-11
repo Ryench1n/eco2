@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Батболд Дорж",
+    "email": "batbold@example.com",
+    "password": "password123",
+    "role": "user"
+  },
+  {
+    "name": "Энхжин Ганбаатар",
+    "email": "enkhjin@example.com",
+    "password": "password123",
+    "role": "user"
+  },
+  {
+    "name": "Сансар Монгол",
+    "email": "sansar@example.com",
+    "password": "password123",
+    "role": "owner"
+  },
+  {
+    "name": "Оюунаа Бат",
+    "email": "oyunaa@example.com",
+    "password": "password123",
+    "role": "owner"
+  },
+  {
+    "name": "Admin",
+    "email": "admin@eco.mn",
+    "password": "admin123",
+    "role": "admin"
+  }
+]

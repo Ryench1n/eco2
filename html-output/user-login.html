@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хэрэглэгч нэвтрэх - ECO</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center p-4" style="background: linear-gradient(to bottom right, rgba(88, 28, 135, 0.4), var(--bg-primary), rgba(88, 28, 135, 0.6));">
+    <div style="width: 100%; max-width: 96rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+      <!-- Left Side - Branding -->
+      <div class="hidden md:flex flex-col items-center justify-center animate-fade-in">
+        <div class="mb-6 relative">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to bottom right, var(--purple-600), var(--cyan-500)); border-radius: 1.5rem; filter: blur(60px); opacity: 0.3;"></div>
+          <img src="logo.svg" alt="ECO Logo" style="height: 12rem; width: auto; position: relative; z-index: 10;">
+        </div>
+        <p class="text-gray-400 text-center text-lg">
+          Монголын шилдэг тоглоомын төвүүдийг нэг дороос олж,<br>
+          захиалга өгөх, сул суудал шалгах
+        </p>
+      </div>
+
+      <!-- Right Side - Login Form -->
+      <div class="animate-fade-in">
+        <div class="card" style="background: rgba(26, 26, 36, 0.8); backdrop-filter: blur(10px);">
+          <div class="card-content p-8">
+            <!-- Tabs -->
+            <div class="flex gap-4 mb-8">
+              <button class="btn btn-primary" style="flex: 1; padding: 0.75rem 1.5rem; font-weight: 600;" onclick="setTab('login')">
+                Нэвтрэх
+              </button>
+              <button class="btn" style="flex: 1; padding: 0.75rem 1.5rem; font-weight: 600; background: transparent; color: var(--gray-400);" onclick="setTab('signup')">
+                Бүртгүүлэх
+              </button>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mb-2">Тавтай морил</h2>
+            <p class="text-gray-400 text-sm mb-6">Өөрийн мэдээллээ оруулж нэвтрэнэ үү</p>
+
+            <form onsubmit="handleLogin(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <!-- Email Input -->
+              <div>
+                <label class="text-gray-300 text-sm mb-2" style="display: block;">
+                  Имэйл хаяг эсвэл утасны дугаар
+                </label>
+                <div class="input-group">
+                  <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  <input type="text" class="input" placeholder="email@example.com эсвэл 99999999">
+                </div>
+              </div>
+
+              <!-- Password Input -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <label class="text-gray-300 text-sm">Нууц үг</label>
+                  <button type="button" class="text-purple-400 text-sm hover:text-purple-300">
+                    Нууц үгээ мартсан?
+                  </button>
+                </div>
+                <div class="input-group">
+                  <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                  <input type="password" class="input" placeholder="••••••••" style="padding-right: 3rem;">
+                  <button type="button" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--gray-400);">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-lg">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+                Нэвтрэх
+              </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="relative my-6">
+              <div style="position: absolute; inset: 0; display: flex; align-items: center;">
+                <div style="width: 100%; border-top: 1px solid rgba(168, 85, 247, 0.3);"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-4 text-gray-400" style="background: var(--bg-card);">эсвэл</span>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center">
+              <p class="text-gray-400 text-sm">
+                Бүртгэлгүй юу? 
+                <button type="button" class="text-purple-400 hover:text-purple-300 font-semibold">
+                  Бүртгүүлэх
+                </button>
+              </p>
+              <div class="flex items-center justify-center gap-4 mt-4 text-sm">
+                <a href="login.html" class="text-cyan-400 hover:text-cyan-300">
+                  ← Сонголт руу буцах
+                </a>
+                <span class="text-gray-600">•</span>
+                <a href="index.html" class="text-purple-400 hover:text-purple-300">
+                  Нүүр хуудас
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+      alert('Амжилттай нэвтэрлээ!');
+      window.location.href = 'profile.html';
+    }
+
+    function setTab(tab) {
+      // Simple tab switching logic
+      console.log('Switch to:', tab);
+    }
+  </script>
+</body>
+</html>

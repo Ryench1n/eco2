@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Захиалга - ECO</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="navbar-logo">
+          <img src="logo.svg" alt="ECO Logo">
+        </a>
+        <div class="navbar-auth">
+          <a href="profile.html" class="btn btn-outline">Профайл</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="min-h-screen bg-primary py-8">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
+        <a href="index.html">Нүүр хуудас</a>
+        <span>›</span>
+        <a href="#" id="breadcrumbCenter"></a>
+        <span>›</span>
+        <span class="text-white">Захиалга</span>
+      </div>
+
+      <h1 class="text-3xl font-bold text-white mb-8">Захиалга</h1>
+
+      <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem;">
+        <!-- Left Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Date & Time Selection -->
+          <div class="card animate-fade-in">
+            <div class="card-header">
+              <h3 class="text-white font-bold flex items-center gap-2">
+                <svg class="icon text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                Огноо болон Цаг сонгох
+              </h3>
+            </div>
+            <div class="card-content">
+              <div class="grid grid-cols-2 gap-6">
+                <div>
+                  <label class="text-white mb-3" style="display: block;">Огноо</label>
+                  <input type="date" class="input" id="dateInput">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div>
+                    <label class="text-white mb-3" style="display: block;">Цаг сонгох</label>
+                    <select class="select" id="timeSelect">
+                      <option>10:00</option>
+                      <option>11:00</option>
+                      <option>12:00</option>
+                      <option>13:00</option>
+                      <option>14:00</option>
+                      <option>15:00</option>
+                      <option>16:00</option>
+                      <option>17:00</option>
+                      <option>18:00</option>
+                      <option>19:00</option>
+                      <option>20:00</option>
+                      <option>21:00</option>
+                      <option>22:00</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="text-white mb-3" style="display: block;">Захиалах хугацаа (цаг)</label>
+                    <select class="select" id="durationSelect">
+                      <option value="1">1 цаг</option>
+                      <option value="2">2 цаг</option>
+                      <option value="3">3 цаг</option>
+                      <option value="4">4 цаг</option>
+                      <option value="5">5 цаг</option>
+                      <option value="6">6 цаг</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seat Selection -->
+          <div class="card animate-fade-in">
+            <div class="card-header">
+              <div>
+                <h3 class="text-white font-bold mb-2">Суудал сонгох</h3>
+                <div class="flex items-center gap-4 text-sm">
+                  <div class="flex items-center gap-2">
+                    <div class="seat seat-available" style="width: 1rem; height: 1rem;"></div>
+                    <span class="text-gray-400">Сонгох боломжтой</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="seat seat-selected" style="width: 1rem; height: 1rem;"></div>
+                    <span class="text-gray-400">Таны сонгосон</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="seat seat-unavailable" style="width: 1rem; height: 1rem;"></div>
+                    <span class="text-gray-400">Сонгох боломжгүй</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <!-- Hall Seats -->
+              <div class="mb-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <h4 class="text-white font-semibold">Hall Seats</h4>
+                  <span class="badge-outline">₮3000/цаг</span>
+                </div>
+                <div class="seat-grid seat-grid-hall" id="hallSeats"></div>
+              </div>
+
+              <!-- VIP Seats -->
+              <div class="mb-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <h4 class="text-white font-semibold">VIP Seats</h4>
+                  <span class="badge-outline">₮5000/цаг</span>
+                </div>
+                <div class="seat-grid seat-grid-hall" id="vipSeats"></div>
+              </div>
+
+              <!-- Stage Seats -->
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <h4 class="text-white font-semibold">Stage Seats</h4>
+                  <span class="badge-outline">₮7000/цаг</span>
+                </div>
+                <div class="seat-grid seat-grid-stage" id="stageSeats"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (Summary) -->
+        <div>
+          <div class="card animate-fade-in" style="position: sticky; top: 6rem;">
+            <div class="card-header">
+              <h3 class="text-white font-bold flex items-center gap-2">
+                <svg class="icon text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+                Захиалгын хураангуй
+              </h3>
+            </div>
+            <div class="card-content" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="p-4 bg-secondary rounded-lg" style="border: 1px solid rgba(168, 85, 247, 0.2);">
+                <h4 class="font-semibold text-white mb-3" id="summaryCenter">Dragon Gaming Lounge</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;" id="summaryDetails">
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">Огноо:</span>
+                    <span class="text-white">-</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">Цаг:</span>
+                    <span class="text-white">-</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">Хугацаа:</span>
+                    <span class="text-white">1 цаг</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="selectedSeatsContainer" class="p-4 bg-secondary rounded-lg" style="border: 1px solid rgba(168, 85, 247, 0.2); display: none;">
+                <h4 class="font-semibold text-white mb-3">Сонгогдсон суудал</h4>
+                <div id="selectedSeatsList"></div>
+              </div>
+
+              <div style="height: 1px; background: rgba(168, 85, 247, 0.2);"></div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-white font-bold text-lg">Нийт төлбөр:</span>
+                <span class="text-purple-400 font-bold text-2xl" id="totalPrice">₮0</span>
+              </div>
+
+              <div id="infoMessage" class="p-3 bg-cyan-900/20 rounded-lg flex gap-2" style="border: 1px solid rgba(34, 211, 238, 0.3);">
+                <svg class="icon text-cyan-400" style="flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-cyan-300 text-sm">
+                  Дор хаяж 1 суудал сонгохыг анхаарна уу
+                </p>
+              </div>
+
+              <button class="btn btn-gradient btn-lg" id="bookButton" onclick="completeBooking()">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+                Төлбөр төлөх
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pricing = { hall: 3000, vip: 5000, stage: 7000 };
+    let selectedSeats = [];
+    let duration = 1;
+
+    // Generate seats
+    function generateSeats(container, count, type, startNum) {
+      const seats = [];
+      for (let i = 0; i < count; i++) {
+        const isAvailable = Math.random() > 0.3;
+        seats.push({ number: startNum + i, type, isAvailable });
+      }
+      
+      container.innerHTML = seats.map(seat => `
+        <button 
+          class="seat ${!seat.isAvailable ? 'seat-unavailable' : 'seat-available'}" 
+          data-number="${seat.number}" 
+          data-type="${type}"
+          ${!seat.isAvailable ? 'disabled' : ''}
+          onclick="toggleSeat(${seat.number}, '${type}', this)"
+        >
+          ${seat.number}
+        </button>
+      `).join('');
+    }
+
+    generateSeats(document.getElementById('hallSeats'), 20, 'hall', 1);
+    generateSeats(document.getElementById('vipSeats'), 10, 'vip', 21);
+    generateSeats(document.getElementById('stageSeats'), 5, 'stage', 31);
+
+    function toggleSeat(number, type, element) {
+      const index = selectedSeats.findIndex(s => s.number === number);
+      
+      if (index > -1) {
+        selectedSeats.splice(index, 1);
+        element.classList.remove('seat-selected');
+        element.classList.add('seat-available');
+      } else {
+        selectedSeats.push({ number, type });
+        element.classList.remove('seat-available');
+        element.classList.add('seat-selected');
+      }
+      
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const container = document.getElementById('selectedSeatsContainer');
+      const list = document.getElementById('selectedSeatsList');
+      
+      if (selectedSeats.length > 0) {
+        container.style.display = 'block';
+        list.innerHTML = selectedSeats.map(seat => `
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-400">Суудал ${seat.number} (${seat.type.toUpperCase()})</span>
+            <span class="text-white">₮${(pricing[seat.type] * duration).toLocaleString()}</span>
+          </div>
+        `).join('');
+      } else {
+        container.style.display = 'none';
+      }
+      
+      const total = selectedSeats.reduce((sum, seat) => sum + pricing[seat.type] * duration, 0);
+      document.getElementById('totalPrice').textContent = `₮${total.toLocaleString()}`;
+      document.getElementById('bookButton').disabled = selectedSeats.length === 0;
+    }
+
+    document.getElementById('durationSelect').addEventListener('change', (e) => {
+      duration = parseInt(e.target.value);
+      updateSummary();
+    });
+
+    function completeBooking() {
+      if (selectedSeats.length === 0) {
+        alert('Суудал сонгоно уу!');
+        return;
+      }
+      
+      alert('Захиалга амжилттай! Та нүүр хуудас руу буцна.');
+      window.location.href = 'index.html';
+    }
+
+    // Set today as min date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('dateInput').min = today;
+    document.getElementById('dateInput').value = today;
+  </script>
+</body>
+</html>

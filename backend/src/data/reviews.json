@@ -1,0 +1,92 @@
+[
+  {
+    "id": "r1",
+    "pcCenterId": "1",
+    "userName": "Батболд",
+    "userAvatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop",
+    "rating": 5,
+    "comment": "Dajgui orchintoi, goy pc bno",
+    "date": "2026-03-15"
+  },
+  {
+    "id": "r2",
+    "pcCenterId": "1",
+    "userName": "Энхжин",
+    "userAvatar": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=200&auto=format&fit=crop",
+    "rating": 5,
+    "comment": "Uzuulelt undur bolhor shan blaa",
+    "date": "2026-03-10"
+  },
+  {
+    "id": "r3",
+    "pcCenterId": "1",
+    "userName": "Тэмүүлэн",
+    "userAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    "rating": 4,
+    "comment": "Nairsag hamt olontoi, dhd zaaval irnee",
+    "date": "2026-03-05"
+  },
+  {
+    "id": "r4",
+    "pcCenterId": "2",
+    "userName": "Оюунаа",
+    "userAvatar": "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=200&auto=format&fit=crop",
+    "rating": 5,
+    "comment": "Monitor ni bur kino2",
+    "date": "2026-03-12"
+  },
+  {
+    "id": "r5",
+    "pcCenterId": "2",
+    "userName": "Сансар",
+    "userAvatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=200&auto=format&fit=crop",
+    "rating": 4,
+    "comment": "Ryzen9 ni sain ymaa.",
+    "date": "2026-03-08"
+  },
+  {
+    "id": "r6",
+    "pcCenterId": "3",
+    "userName": "Тэмүүлэн",
+    "userAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    "rating": 5,
+    "comment": "RTX 4090 setup galzuu!",
+    "date": "2026-03-18"
+  },
+  {
+    "id": "r7",
+    "pcCenterId": "3",
+    "userName": "Батболд",
+    "userAvatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop",
+    "rating": 5,
+    "comment": "Undur unetei ch worth it ",
+    "date": "2026-03-20"
+  },
+  {
+    "id": "r8",
+    "pcCenterId": "4",
+    "userName": "Энхжин",
+    "userAvatar": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=200&auto=format&fit=crop",
+    "rating": 4,
+    "comment": "Temtseen hiihed tohiromjtoi",
+    "date": "2026-03-22"
+  },
+  {
+    "id": "r9",
+    "pcCenterId": "5",
+    "userName": "Оюунаа",
+    "userAvatar": "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=200&auto=format&fit=crop",
+    "rating": 4,
+    "comment": "Hymd murtluu hurdan, nice222",
+    "date": "2026-03-25"
+  },
+  {
+    "id": "r10",
+    "pcCenterId": "6",
+    "userName": "Сансар",
+    "userAvatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=200&auto=format&fit=crop",
+    "rating": 4,
+    "comment": "Tom zaaltai bolhor tsag aldana gj aihgui",
+    "date": "2026-03-28"
+  }
+]

@@ -1,0 +1,14 @@
+node_modules
+dist
+.claude/
+
+# Environment files — never commit real secrets
+.env
+.env.local
+.env.production
+backend/.env
+backend/.env.test
+
+# Keep examples
+!.env.example
+!backend/.env.example

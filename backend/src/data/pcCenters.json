@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1",
+    "name": "P Gaming ",
+    "address": "Сүхбаатар дүүрэг, 11-р хороолол",
+    "image": "https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/689045451_991920306905759_3874837930576802444_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=5_NUfFmNc5QQ7kNvwEmrlrJ&_nc_oc=AdoCoRz2qL6kNBPrZ6Gu-HiPJl-IhsOqQKEFFhQSQd63jp-8nSaGZ0sUWTg-k3uj3OvGCmgcMS0R6hXKGTlvsCcC&_nc_zt=23&_nc_ht=scontent.fuln6-2.fna&_nc_gid=WHT58xDDgD8yCyMkWf3Msg&_nc_ss=7b2a8&oh=00_Af6GU9wswYTRsvxrDktT9FSriEw9f8obM9J_qWbQweGfog&oe=6A074AAC",
+    "totalSeats": 35,
+    "rating": 4.8,
+    "reviewCount": 156,
+    "description": "Тав тухтай орчин, найрсаг хамт олон. Монголын хамгийн тав тухтай, орчин үеийн тоног төхөөрөмжтэй gaming lounge. Хурдтай интернэт, тохилог суудал, мэргэжлийн тоглоомын тоног төхөөрөмжтэй.",
+    "gears": {
+      "cpu": "Intel Core i9-13900K",
+      "gpu": "NVIDIA RTX 4080",
+      "ram": "32GB DDR5",
+      "monitor": "ASUS ROG Swift 27\" 240Hz",
+      "keyboard": "Razer BlackWidow V3",
+      "mouse": "Logitech G Pro X Superlight",
+      "headset": "HyperX Cloud II"
+    },
+    "contactPhone": "+976 9944-1791",
+    "facebookPage": "www.facebook.com/pgaming9911",
+    "openingHours": {
+      "monday": "10:00 - 23:00",
+      "tuesday": "10:00 - 23:00",
+      "wednesday": "10:00 - 23:00",
+      "thursday": "10:00 - 23:00",
+      "friday": "10:00 - 01:00",
+      "saturday": "10:00 - 01:00",
+      "sunday": "10:00 - 23:00"
+    },
+    "pricing": {
+      "hall": 5000,
+      "vip": 7000,
+      "stage": 10000
+    }
+  },
+  {
+    "id": "2",
+    "name": "Nexus E-sport center",
+    "address": "Сүхбаатар дүүрэг, Azmall",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIZTyJv3SR-ymnf0-K_V5HSbgHBVpyrut8Cw&s",
+    "totalSeats": 200,
+    "rating": 4.6,
+    "reviewCount": 98,
+    "description": "Монголын хамгийн олон суудалтай, өндөр үзүүлэлт, тухтай орчин, хямд",
+    "gears": {
+      "cpu": "AMD Ryzen 9 7950X",
+      "gpu": "NVIDIA RTX 4070 Ti",
+      "ram": "32GB DDR5",
+      "monitor": "Samsung Odyssey G7 32\"",
+      "keyboard": "Corsair K70 RGB",
+      "mouse": "Razer DeathAdder V3",
+      "headset": "SteelSeries Arctis Pro"
+    },
+    "contactPhone": "+976 7588-4411",
+    "facebookPage": "fb.com/cyberarenaub",
+    "openingHours": {
+      "monday": "09:00 - 22:00",
+      "tuesday": "09:00 - 22:00",
+      "wednesday": "09:00 - 22:00",
+      "thursday": "09:00 - 22:00",
+      "friday": "09:00 - 00:00",
+      "saturday": "09:00 - 00:00",
+      "sunday": "09:00 - 22:00"
+    },
+    "pricing": {
+      "hall": 2500,
+      "vip": 4500,
+      "stage": 6500
+    }
+  },
+  {
+    "id": "3",
+    "name": "SKOL Gaming",
+    "address": "Сүхбаатар дүүрэг, Циркийн хажууд",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-66csztv57JA_s1_06pYZo2LLtzYGu_cIFQ&s",
+    "totalSeats": 30,
+    "rating": 4.9,
+    "reviewCount": 204,
+    "description": "Хотын төвд байрлалтай, тухтай орчин, өндөр үзүүлэлт.",
+    "gears": {
+      "cpu": "Intel Core i7-13700K",
+      "gpu": "NVIDIA RTX 4090",
+      "ram": "64GB DDR5",
+      "monitor": "LG UltraGear 27\" 165Hz",
+      "keyboard": "SteelSeries Apex Pro",
+      "mouse": "Logitech G502 X",
+      "headset": "Razer BlackShark V2"
+    },
+    "contactPhone": "+976 7200-5055",
+    "facebookPage": "https://www.facebook.com/CreatexEsport",
+    "openingHours": {
+      "monday": "10:00 - 00:00",
+      "tuesday": "10:00 - 00:00",
+      "wednesday": "10:00 - 00:00",
+      "thursday": "10:00 - 00:00",
+      "friday": "10:00 - 02:00",
+      "saturday": "10:00 - 02:00",
+      "sunday": "10:00 - 00:00"
+    },
+    "pricing": {
+      "hall": 6000,
+      "vip": 9000,
+      "stage": 12000
+    }
+  },
+  {
+    "id": "4",
+    "name": "LANNHUB",
+    "address": "Сүхбаатар дүүрэг, МУИС 8-р байрны урд",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxMh4uTEWHi9PJPnu6l3YiX09VKlJnGVCPw&s",
+    "totalSeats": 35,
+    "rating": 4.7,
+    "reviewCount": 132,
+    "description": "Хичээл сургуультай ойр, дундаж үзүүлэлт, тухтай орчин",
+    "gears": {
+      "cpu": "AMD Ryzen 7 7800X3D",
+      "gpu": "NVIDIA RTX 4080",
+      "ram": "32GB DDR5",
+      "monitor": "BenQ Zowie XL2546K 24.5\" 240Hz",
+      "keyboard": "Ducky One 3",
+      "mouse": "Finalmouse Starlight-12",
+      "headset": "Audio-Technica ATH-M50x"
+    },
+    "contactPhone": "+976 8850-1792",
+    "facebookPage": "https://www.facebook.com/p/LANN-Hub-61557531350190/",
+    "openingHours": {
+      "monday": "11:00 - 23:00",
+      "tuesday": "11:00 - 23:00",
+      "wednesday": "11:00 - 23:00",
+      "thursday": "11:00 - 23:00",
+      "friday": "11:00 - 01:00",
+      "saturday": "11:00 - 01:00",
+      "sunday": "11:00 - 23:00"
+    },
+    "pricing": {
+      "hall": 3500,
+      "vip": 5000,
+      "stage": 7000
+    }
+  },
+  {
+    "id": "5",
+    "name": "NeonByte Gaming",
+    "address": "Баянгол дүүрэг, 5-р байр",
+    "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800&q=80",
+    "totalSeats": 25,
+    "rating": 4.5,
+    "reviewCount": 74,
+    "description": "Хямд үнэтэй, найрсаг орчинтой gaming cafe. Оюутнуудад зориулсан хөнгөлөлттэй үнэ. Хурдтай интернэт болон орчин үеийн тоглоомуудтай.",
+    "gears": {
+      "cpu": "Intel Core i5-13600K",
+      "gpu": "NVIDIA RTX 3070",
+      "ram": "16GB DDR4",
+      "monitor": "AOC 24\" 144Hz",
+      "keyboard": "HyperX Alloy Origins",
+      "mouse": "Logitech G304",
+      "headset": "Corsair HS50"
+    },
+    "contactPhone": "+976 6666-5555",
+    "facebookPage": "fb.com/neonbytegaming",
+    "openingHours": {
+      "monday": "09:00 - 22:00",
+      "tuesday": "09:00 - 22:00",
+      "wednesday": "09:00 - 22:00",
+      "thursday": "09:00 - 22:00",
+      "friday": "09:00 - 23:00",
+      "saturday": "09:00 - 23:00",
+      "sunday": "10:00 - 22:00"
+    },
+    "pricing": {
+      "hall": 2000,
+      "vip": 3500,
+      "stage": 5000
+    }
+  },
+  {
+    "id": "6",
+    "name": "StarForge Arena",
+    "address": "Чингэлтэй дүүрэг, 12-р байр",
+    "image": "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=800&q=80",
+    "totalSeats": 45,
+    "rating": 4.4,
+    "reviewCount": 89,
+    "description": "Largest gaming arena in central Ulaanbaatar. Perfect for group gaming sessions and tournaments. Features dedicated streaming stations and a lounge area.",
+    "gears": {
+      "cpu": "AMD Ryzen 5 7600X",
+      "gpu": "NVIDIA RTX 3080",
+      "ram": "32GB DDR5",
+      "monitor": "Dell S2722DGM 27\" 165Hz",
+      "keyboard": "Redragon K552",
+      "mouse": "Glorious Model O",
+      "headset": "Kingston HyperX Cloud Stinger"
+    },
+    "contactPhone": "+976 5555-4444",
+    "facebookPage": "fb.com/starforgearena",
+    "openingHours": {
+      "monday": "10:00 - 23:00",
+      "tuesday": "10:00 - 23:00",
+      "wednesday": "10:00 - 23:00",
+      "thursday": "10:00 - 23:00",
+      "friday": "10:00 - 02:00",
+      "saturday": "10:00 - 02:00",
+      "sunday": "10:00 - 23:00"
+    },
+    "pricing": {
+      "hall": 2200,
+      "vip": 4000,
+      "stage": 6000
+    }
+  }
+]
