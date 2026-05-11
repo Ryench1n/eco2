@@ -30,7 +30,15 @@ const io = new SocketIOServer(httpServer, {
 });
 
 // Middleware
-app.use(helmet({ crossOriginResourcePolicy: false }));
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "script-src": ["'self'", "'unsafe-inline'"],
+    },
+  },
+}));
 app.use(cors({ origin: config.frontendUrl, credentials: true }));
 app.use(morgan('dev'));
 app.use(express.json());
