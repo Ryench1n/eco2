@@ -247,7 +247,7 @@ export function setupApiDocs(expressApp: any) {
                   response = await fetch('/health');
                   break;
                 case 'root':
-                  response = await fetch('/');
+                  response = await fetch('/api');
                   break;
                 case 'register':
                   response = await fetch('/api/auth/register', {

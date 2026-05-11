@@ -39,6 +39,15 @@ app.use(express.urlencoded({ extended: true }));
 // Root → API docs
 app.get('/', (_req, res) => res.redirect('/api-docs'));
 
+// API root info
+app.get('/api', (_req, res) => {
+  res.json({
+    name: 'ECO Gaming Platform API',
+    version: '1.0.0',
+    endpoints: ['/api/auth', '/api/users', '/api/pc-centers', '/api/bookings', '/api/reviews'],
+  });
+});
+
 // Health check
 app.get('/health', async (_req, res) => {
   const dbConnected = await checkDatabaseConnection();
