@@ -1,3 +1,7 @@
+# Private keys — never commit
+*.pem
+*.key
+
 node_modules
 dist
 .claude/

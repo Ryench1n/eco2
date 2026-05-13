@@ -1,6 +1,3 @@
-#!/bin/bash
-# ECO Gaming Platform — EC2 Deploy Script
-# Run this on the EC2 server after first SSH login
 set -e
 
 APP_DIR="/var/www/eco2"
